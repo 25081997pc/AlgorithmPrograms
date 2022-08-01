@@ -2,30 +2,32 @@
 {
     class Program
     {
-        //Program for Implementation of Bubble Sort
+        //Program to check whether two strings are anagrams for each other
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Algorithm Programs");
-            int[] arr = { 78, 55, 45, 98, 13 };
-            int temp;
-            //Sorting an Array
-            for (int j = 0; j <= arr.Length - 2; j++)
+            string str1 = "abcd";
+            string str2 = "dcba";
+            //convert the strings into character array with lowercase
+            char[] ch1 = str1.ToLower().ToCharArray();
+            char[] ch2 = str2.ToLower().ToCharArray();
+            //Sort the arrays
+            Array.Sort(ch1);
+            Array.Sort(ch2);
+            //Convert the character arrays to strings
+            string val1 = new string(ch1);
+            string val2 = new string(ch2);
+            if (val1 == val2)
             {
-                for (int i = 0; i <= arr.Length - 2; i++)
-                {
-                    if (arr[i] > arr[i + 1])
-                    {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
-                    }
-                }
+                Console.WriteLine(val1);
+                Console.WriteLine(val2);
+                Console.WriteLine("Both the strings are Anagram");
             }
-            //Sorted Array
-            Console.WriteLine("Sorted : ");
-            foreach (int p in arr)
+            else
             {
-                Console.Write(p + " ");
+                Console.WriteLine(val1);
+                Console.WriteLine(val2);
+                Console.WriteLine("Both the strings are Not Anagram");
             }
         }
     }
