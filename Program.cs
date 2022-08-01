@@ -2,32 +2,40 @@
 {
     class Program
     {
-        //Program to check whether two strings are anagrams for each other
+        //Program to Find the Prime Numbers within given range
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Algorithm Programs");
-            string str1 = "abcd";
-            string str2 = "dcba";
-            //convert the strings into character array with lowercase
-            char[] ch1 = str1.ToLower().ToCharArray();
-            char[] ch2 = str2.ToLower().ToCharArray();
-            //Sort the arrays
-            Array.Sort(ch1);
-            Array.Sort(ch2);
-            //Convert the character arrays to strings
-            string val1 = new string(ch1);
-            string val2 = new string(ch2);
-            if (val1 == val2)
+            //Variables
+            int n, i, flag = 0;
+            int min, max;
+            Console.WriteLine("Find the Prime Number within a given range");
+
+            Console.WriteLine("Input starting number of range:");
+            min = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input Ending number of range");
+            max = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Prime Numbers are: ");
+            if (min >= 2)
             {
-                Console.WriteLine(val1);
-                Console.WriteLine(val2);
-                Console.WriteLine("Both the strings are Anagram");
-            }
-            else
-            {
-                Console.WriteLine(val1);
-                Console.WriteLine(val2);
-                Console.WriteLine("Both the strings are Not Anagram");
+                for (n = min; n <= max; n++)
+                {
+                    i = 2;
+                    flag = 0;
+                    while (i <= n / 2)
+                    {
+                        if (n % i == 0)
+                        {
+                            flag = 1;
+                            break;
+                        }
+                        i = i + 1;
+                    }
+                    if (flag == 0)
+                    {
+                        Console.Write("{0} ", n);
+                    }
+                }
             }
         }
     }
