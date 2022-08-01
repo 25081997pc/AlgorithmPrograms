@@ -2,40 +2,30 @@
 {
     class Program
     {
-        //Program for Implementation of Insertion Sort
-        static void Main(string[] args)
+        //Program for Implementation of Bubble Sort
+        public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Algorithm Programs");
-            //Variables
-            int n = 5, i, j, val, flag;
-            int[] arr = new int[5] { 45, 3, 78, 11, 1 };
-            Console.WriteLine("Insertion Sort");
-            Console.WriteLine("Initial array is : ");
-            for (i = 0; i < n; i++)
+            int[] arr = { 78, 55, 45, 98, 13 };
+            int temp;
+            //Sorting an Array
+            for (int j = 0; j <= arr.Length - 2; j++)
             {
-                Console.WriteLine(arr[i] + " ");
-            }
-            for (i = 1; i < n; i++)
-            {
-                val = arr[i];
-                flag = 0;
-                for (j = i - 1; j >= 0 && flag != 1;)
+                for (int i = 0; i <= arr.Length - 2; i++)
                 {
-                    if (val < arr[j])
+                    if (arr[i] > arr[i + 1])
                     {
-                        arr[j + 1] = arr[j];
-                        j--;
-                        arr[j + 1] = val;
+                        temp = arr[i + 1];
+                        arr[i + 1] = arr[i];
+                        arr[i] = temp;
                     }
-                    else
-                        flag = 1;
                 }
             }
-            //Sorted Array List
-            Console.WriteLine("Sorted Array is :");
-            for (i = 0; i < n; i++)
+            //Sorted Array
+            Console.WriteLine("Sorted : ");
+            foreach (int p in arr)
             {
-                Console.WriteLine(arr[i] + " ");
+                Console.Write(p + " ");
             }
         }
     }
