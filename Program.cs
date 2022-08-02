@@ -2,41 +2,17 @@
 {
     class Program
     {
-        //Program to Find the Prime Numbers within given range
+        //this is Driver method
         public static void Main(string[] args)
         {
-            //Variables
-            int n, i, flag = 0;
-            int min, max;
-            Console.WriteLine("Find the Prime Number within a given range");
+            int[] ints = new int[] { 45, 75, 20, 92, 35, 1, 40, 0, 55 };
+            MergeSort mergeSort = new MergeSort();
 
-            Console.WriteLine("Input starting number of range:");
-            min = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Input Ending number of range");
-            max = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Prime Numbers are: ");
-            if (min >= 2)
-            {
-                for (n = min; n <= max; n++)
-                {
-                    i = 2;
-                    flag = 0;
-                    while (i <= n / 2)
-                    {
-                        if (n % i == 0)
-                        {
-                            flag = 1;
-                            break;
-                        }
-                        i = i + 1;
-                    }
-                    if (flag == 0)
-                    {
-                        Console.Write("{0} ", n);
-                    }
-                }
-            }
+            Console.WriteLine("Before Merge Sort : ");
+            mergeSort.printArray(ints);
+            int[] sortedints = mergeSort.mergeSort(ints);
+            Console.WriteLine("After Merge Sort : ");
+            mergeSort.printArray(sortedints);
         }
     }
 }
